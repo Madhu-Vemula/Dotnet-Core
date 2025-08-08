@@ -62,3 +62,4 @@ C:\Users\MADHU BABU\OneDrive\Desktop\.NET\.NET Core\ConsoleApp\obj\Debug\net9.0\
 C:\Users\MADHU BABU\OneDrive\Desktop\.NET\.NET Core\ConsoleApp\obj\Debug\net9.0\ConsoleApp.pdb
 C:\Users\MADHU BABU\OneDrive\Desktop\.NET\.NET Core\ConsoleApp\obj\Debug\net9.0\ConsoleApp.genruntimeconfig.cache
 C:\Users\MADHU BABU\OneDrive\Desktop\.NET\.NET Core\ConsoleApp\obj\Debug\net9.0\ref\ConsoleApp.dll
+C:\Users\MADHU BABU\OneDrive\Desktop\.NET\.NET Core\ConsoleApp\obj\Debug\net9.0\ConsoleApp.sourcelink.json

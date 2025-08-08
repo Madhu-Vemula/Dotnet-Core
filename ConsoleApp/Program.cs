@@ -119,12 +119,37 @@ namespace ConsoleApp
                 con?.Close();
             }
         }
+        public static void DeleteData()
+        {
+            SqlConnection? con = null;
+            try
+            {
+                con = new SqlConnection("Server=.\\SQLEXPRESS02;Database=Demo;Integrated Security=True;TrustServerCertificate=True;");
+
+                SqlCommand cm = new SqlCommand("delete from employees where employeeId = '2'", con);
+
+                con.Open();
+
+                cm.ExecuteNonQuery();
+                Console.WriteLine("Record Deleted Successfully");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OOPs, something went wrong." + e);
+            }
+
+            finally
+            {
+                con?.Close();
+            }
+        }
         public static void Main(string[] args)
         {
             var obj = new Program();
 
-            TestConnection();
+            // TestConnection();
             // InsertRecord(); 
+            DeleteData();
             DisplayData();
             Console.WriteLine("Hello World!");
         }
