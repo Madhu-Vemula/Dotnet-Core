@@ -1,0 +1,43 @@
+-- 1. Roles Table
+CREATE TABLE Roles (
+    RoleID INT PRIMARY KEY IDENTITY(1,1),
+    RoleName VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- 2. Employees Table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    RoleID INT FOREIGN KEY REFERENCES Roles(RoleID),
+    ManagerID INT NULL, -- Self-referencing FK for reporting manager
+    Password VARCHAR(100) NOT NULL,
+
+    FOREIGN KEY (ManagerID) REFERENCES Employees(EmployeeID)
+);
+
+
+-- 3. LeaveStatus Table
+CREATE TABLE LeaveStatus (
+    StatusID INT PRIMARY KEY IDENTITY(1,1),
+    StatusName VARCHAR(50) NOT NULL UNIQUE -- approve, reject, pending, cancelled
+);
+
+-- 4. LeaveType Table
+CREATE TABLE LeaveTypes (
+    TypeID INT PRIMARY KEY IDENTITY(1,1),
+    TypeName VARCHAR(50) NOT NULL UNIQUE -- paid, unpaid
+);
+
+-- 5. Leaves Table
+CREATE TABLE Leaves (
+    LeaveID UNIQUEIDENTIFIER PRIMARY KEY, -- using the 'id' like '697f'
+    EmpID INT FOREIGN KEY REFERENCES Employees(EmployeeID),
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    DayDifference INT NOT NULL,
+    Reason VARCHAR(200),
+    StatusID INT FOREIGN KEY REFERENCES LeaveStatus(StatusID),
+    TypeID INT FOREIGN KEY REFERENCES LeaveTypes(TypeID),
+    RespondedByEmail VARCHAR(100) NULL
+);
